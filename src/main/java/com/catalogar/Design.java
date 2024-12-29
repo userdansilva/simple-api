@@ -1,9 +1,22 @@
 package com.catalogar;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
-// This is a Model
+@Entity
 public class Design {
+
+    @Id
+    @SequenceGenerator(
+            name = "design_id_sequence",
+            sequenceName = "design_id_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "design_id_sequence"
+    )
     private Integer id;
     private String title;
     private String categories;
